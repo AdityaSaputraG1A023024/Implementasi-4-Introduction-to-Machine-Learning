@@ -1,0 +1,67 @@
+﻿dataset:
+  name: "German Credit Risk (OpenML)"
+  openml_name: "credit-g"
+  version: 1
+  source: auto
+  fallback_samples: 2400
+  fallback_features: 12
+  fallback_informative: 8
+  fallback_redundant: 2
+  minority_class_weight: 0.25
+  synthetic_seed: 20261020
+  missing_rates: [0.05, 0.20]
+  missing_seed: 20261021
+  duplicate_rows_to_add: 12
+
+experiment:
+  test_size: 0.20
+  random_seeds: [11, 23, 37, 51, 79]
+  cv_folds: 5
+  near_perfect_accuracy: 0.98
+  overfit_gap_threshold: 0.10
+  algorithms:
+    logistic_regression:
+      max_iter: 1000
+      C: 1.0
+      class_weight: null
+    decision_tree:
+      max_depth: 6
+      min_samples_leaf: 5
+      class_weight: null
+    svm:
+      C: 1.0
+      kernel: rbf
+      class_weight: null
+    random_forest:
+      n_estimators: 100
+      max_depth: 8
+      min_samples_leaf: 3
+      class_weight: null
+
+preprocessing_scenarios:
+  - name: "hapus_standard_onehot"
+    missing: drop
+    scaler: standard
+    categorical_encoder: onehot
+  - name: "median_standard_onehot"
+    missing: median
+    scaler: standard
+    categorical_encoder: onehot
+  - name: "knn_standard_onehot"
+    missing: knn
+    scaler: standard
+    categorical_encoder: onehot
+  - name: "median_no_scale_onehot"
+    missing: median
+    scaler: none
+    categorical_encoder: onehot
+  - name: "median_minmax_onehot"
+    missing: median
+    scaler: minmax
+    categorical_encoder: onehot
+  - name: "median_standard_ordinal"
+    missing: median
+    scaler: standard
+    categorical_encoder: ordinal
+
+
