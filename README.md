@@ -143,18 +143,3 @@ src/{data_loader.py,preprocessing.py,train_evaluate.py,plot_results.py,main.py}
 reports/{hasil_eksperimen.csv,ringkasan.csv,metadata.json,figures/}
 tests/test_ml_pipeline.py
 ```
-
-## Mengunggah ke GitHub
-
-Buat repositori bernama `pengaruh-praproses-klasifikasi`, lalu dari folder proyek:
-
-```powershell
-git init
-git add README.md requirements.txt .gitignore config.yaml data src tests reports
-git commit -m "Tambahkan eksperimen pengaruh prapemrosesan klasifikasi"
-git branch -M main
-git remote add origin https://github.com/USERNAME/pengaruh-praproses-klasifikasi.git
-git push -u origin main
-```
-
-Ganti `USERNAME` dengan akun GitHub Anda. Jika remote `origin` sudah tersedia, gunakan `git remote set-url origin ...`.
